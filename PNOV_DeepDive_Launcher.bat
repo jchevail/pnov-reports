@@ -38,6 +38,23 @@ echo.
 echo Installing dependencies...
 pip install selenium webdriver-manager --quiet --disable-pip-version-check 2>nul
 
+:: Download geckodriver if not present (avoids GitHub API rate limit issues)
+if not exist "%TEMP%\geckodriver.exe" (
+    echo Downloading geckodriver...
+    curl -sL "https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-win64.zip" -o "%TEMP%\geckodriver.zip"
+    if exist "%TEMP%\geckodriver.zip" (
+        powershell -Command "Expand-Archive -Force '%TEMP%\geckodriver.zip' '%TEMP%'" 2>nul
+        if exist "%TEMP%\geckodriver.exe" (
+            echo [OK] geckodriver ready.
+        ) else (
+            echo [WARNING] Could not extract geckodriver. The tool will try webdriver_manager.
+        )
+        del "%TEMP%\geckodriver.zip" 2>nul
+    )
+) else (
+    echo [OK] geckodriver already available.
+)
+
 :: Launch the tool
 echo.
 echo Launching PNOV Deep Dive...

@@ -96,7 +96,7 @@ ALL_MOTHER_STATIONS = sorted(MS_XPT_MAP.keys())
 
 # GitHub Pages auto-publish config
 GITHUB_REPO_DIR = r"C:\Users\jchevail\pnov-reports"
-GIT_EXE = r"C:\Program Files\Git\cmd\git.exe"
+GIT_EXE = r"C:\Users\jchevail\AppData\Local\Programs\Git\cmd\git.exe"
 
 
 def publish_to_github(html_path, log_func=print):
@@ -239,14 +239,34 @@ def create_browser(download_dir=None):
     opts.set_preference("browser.download.manager.showWhenStarting", False)
 
     gecko_path = None
-    cache_dir = os.path.join(os.environ.get("USERPROFILE", ""), ".wdm", "drivers", "geckodriver")
-    if os.path.exists(cache_dir):
-        for root_dir, dirs, files in os.walk(cache_dir):
-            if "geckodriver.exe" in files:
-                gecko_path = os.path.join(root_dir, "geckodriver.exe")
-                break
+    # 1. Check next to the script itself
+    script_dir = os.path.dirname(os.path.abspath(sys.executable if getattr(sys, 'frozen', False) else __file__))
+    local_gecko = os.path.join(script_dir, "geckodriver.exe")
+    if os.path.exists(local_gecko):
+        gecko_path = local_gecko
+    # 2. Check in TEMP (for launcher mode)
     if not gecko_path:
-        gecko_path = GeckoDriverManager().install()
+        temp_gecko = os.path.join(os.environ.get("TEMP", ""), "geckodriver.exe")
+        if os.path.exists(temp_gecko):
+            gecko_path = temp_gecko
+    # 3. Check webdriver_manager cache
+    if not gecko_path:
+        cache_dir = os.path.join(os.environ.get("USERPROFILE", ""), ".wdm", "drivers", "geckodriver")
+        if os.path.exists(cache_dir):
+            for root_dir, dirs, files in os.walk(cache_dir):
+                if "geckodriver.exe" in files:
+                    gecko_path = os.path.join(root_dir, "geckodriver.exe")
+                    break
+    # 4. Try downloading via webdriver_manager (may fail with rate limit)
+    if not gecko_path:
+        try:
+            gecko_path = GeckoDriverManager().install()
+        except Exception:
+            raise RuntimeError(
+                "geckodriver.exe not found and could not be downloaded (GitHub API rate limit).\n"
+                "Fix: download geckodriver manually from https://github.com/mozilla/geckodriver/releases\n"
+                "and place geckodriver.exe next to this script or in your TEMP folder."
+            )
 
     service = Service(gecko_path, log_output=os.devnull)
     driver = webdriver.Firefox(service=service, options=opts)
