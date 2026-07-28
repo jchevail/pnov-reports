@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<title>PNOV Deep Dive W2026-30</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;margin:20px auto;max-width:1400px;background:#f5f5f5;color:#333}
+h1{color:#232f3e;font-size:22px;margin-bottom:5px}
+h2{color:#fff;font-size:15px;padding:10px 14px;background:#232f3e;border-radius:6px;margin:20px 0 12px}
+h3{color:#232f3e;font-size:13px;margin:15px 0 8px;border-bottom:1px solid #e5e7eb;padding-bottom:4px}
+.meta{color:#666;font-size:13px;margin-bottom:20px}
+.station-block{background:#fff;padding:18px;border-radius:8px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.stats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}
+.sc{background:#232f3e;color:#fff;padding:8px 14px;border-radius:6px;text-align:center;min-width:80px;cursor:help;position:relative}
+.sc:hover::after{content:attr(title);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:6px 10px;border-radius:4px;font-size:10px;white-space:nowrap;z-index:10;opacity:0.95}
+.sc.red{background:#dc2626}.sc.green{background:#16a34a}
+.sc .l{font-size:10px;opacity:.8}.sc .v{font-size:16px;font-weight:700}
+table{border-collapse:collapse;width:100%;margin-bottom:12px;font-size:12px}
+.findings-table{margin:15px 0}
+.findings-table td{padding:8px 10px;vertical-align:top}
+.findings-table td:first-child{font-size:16px;text-align:center;width:30px}
+.findings-table td:nth-child(2){width:40px}
+th{background:#374151;color:#fff;padding:6px 10px;text-align:left;font-size:11px}
+td{padding:5px 10px;border-bottom:1px solid #e5e7eb}
+tr:hover{background:#f0f4ff}
+</style></head><body>
+<h1>PNOV Deep Dive — W2026-30</h1>
+<div class="meta">Generated 2026-07-28 09:30 | 3 stations | 228 total parcels</div>
+
+            <div class="station-block">
+            <h2>📍 OAR2 + OAR5 — 188 PNOV parcels</h2>
+            <div class="stats">
+                <div class="sc" title="Total PNOV parcels for this station group this week"><div class="l">Total</div><div class="v">188</div></div>
+                <div class="sc " title="% of PNOV parcels conceded (refunded to customer = confirmed lost)"><div class="l">Conceded%</div><div class="v">0%</div></div>
+                <div class="sc red" title="% of PNOV parcels that went through Problem Solve (PS scanned the parcel = investigation done)"><div class="l">PS%</div><div class="v">0/188 (0%)</div></div>
+                <div class="sc" title="% of PNOV that are liquid/fragile parcels (higher damage risk)"><div class="l">Liquid%</div><div class="v">0.0%</div></div>
+                <div class="sc" title="% of PNOV that are oversized parcels (OV = stored on rack, not in bags)"><div class="l">OV%</div><div class="v">0.0%</div></div>
+                <div class="sc" title="% of PNOV parcels destined to a locker delivery point"><div class="l">Locker%</div><div class="v">0.0%</div></div>
+                <div class="sc " title="% of PNOV on split routes (parcel transferred between DAs = higher loss risk)"><div class="l">Split%</div><div class="v">27.1%</div></div>
+                <div class="sc" title="% of PNOV parcels returned to station D+1 (recovered next day)"><div class="l">RTS D+1%</div><div class="v">0%</div></div>
+            </div>
+
+            <h3>📊 Station Data Summary</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:15px;font-size:12px">
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>📅 Daily Trend</b><br>
+                • 2026-07-21: <b>43</b> PNOV<br>• 2026-07-25: <b>36</b> PNOV<br>• 2026-07-22: <b>32</b> PNOV<br>
+                <span style='color:#666'>Spread over 7 days</span>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>📦 Stow & Dwell</b><br>
+                • Stowed: <b>100.0%</b> (188/188)<br>
+                • Mean dwell: <b>16.3 min</b><br>
+                • PS: <b>0/188 (0.0%)</b>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>💰 Value</b><br>
+                • Total: <b>&euro;0</b><br>
+                • HV &gt;100&euro;: <b>0</b> parcels (&euro;0)<br>
+                • HV &gt;300&euro;: <b>0</b> parcels
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🏷️ Characteristics</b><br>
+                • Liquid: 0 | Repack: 0 | Locker: 0<br>
+                • OV: 0 | HV&gt;100&euro;: 0 | SWA: 0
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🔄 Recovery & Concession</b><br>
+                • RTS: <b>0%</b> | D+1: <b>0%</b><br>
+                • Conceded: <b>0%</b>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🚛 Routes & Fleet</b><br>
+                • 147 routes (max 3/route)<br>
+                • Split: <b>27%</b> | PSUA: <b>0%</b><br>
+                
+                
+            </div>
+            </div>
+
+            <h3>📦 UTR — Grouped (OAR2 + OAR5)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+            <div>
+                <b>Top Stow Operators</b>
+                <table><thead><tr><th>Operator</th><th style="text-align:right">PNOV</th><th style="text-align:right">%</th><th style="text-align:right">HV&gt;100&euro;</th></tr></thead><tbody><tr><td>marclebr@amazon.com</td><td style='text-align:right'>7</td><td style='text-align:right'>3.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>abifadao@amazon.com</td><td style='text-align:right'>7</td><td style='text-align:right'>3.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>abdmouzo@amazon.com</td><td style='text-align:right'>7</td><td style='text-align:right'>3.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>aouerwan@amazon.com</td><td style='text-align:right'>7</td><td style='text-align:right'>3.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>aboisrae@amazon.com</td><td style='text-align:right'>6</td><td style='text-align:right'>3.2%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>xabyouss</td><td style='text-align:right'>6</td><td style='text-align:right'>3.2%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>isaboute@amazon.com</td><td style='text-align:right'>5</td><td style='text-align:right'>2.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>chaclemx@amazon.com</td><td style='text-align:right'>5</td><td style='text-align:right'>2.7%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>leeedanf@amazon.com</td><td style='text-align:right'>4</td><td style='text-align:right'>2.1%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>skaymenz@amazon.com</td><td style='text-align:right'>4</td><td style='text-align:right'>2.1%</td><td style='text-align:right;color:#999'>0</td></tr></tbody></table>
+            </div>
+            <div>
+                <b>Induct-to-Stow Dwell Time</b> <span style="font-size:11px;color:#666">(mean: 16.3 min)</span>
+                <table><thead><tr><th>Bucket</th><th style="text-align:right">Count</th><th style="text-align:right">%</th></tr></thead><tbody>
+                <tr><td>0-5 min</td><td style="text-align:right">75</td><td style="text-align:right">40%</td></tr>
+                <tr><td>5-15 min</td><td style="text-align:right">63</td><td style="text-align:right">34%</td></tr>
+                <tr><td>15-30 min</td><td style="text-align:right">21</td><td style="text-align:right">11%</td></tr>
+                <tr><td>30-60 min</td><td style="text-align:right">21</td><td style="text-align:right">11%</td></tr>
+                <tr style="background:#fef2f2"><td>&gt;60 min</td><td style="text-align:right">8</td><td style="text-align:right">4%</td></tr>
+                </tbody></table>
+            </div>
+            </div>
+            <div style='margin-top:10px;padding:10px;background:#f9fafb;border-radius:4px;font-size:11px'><b>Per-site breakdown:</b><br>• <b>OAR2</b>: 81 parcels | Liquid 0.0% | OV 0.0% | PS 0%<br>• <b>OAR5</b>: 107 parcels | Liquid 0.0% | OV 0.0% | PS 0%<br></div>
+
+            
+                <h3>🚚 OTR — OAR2 (XPT) — 81 parcels</h3>
+                <div style="display:grid;grid-template-columns:auto auto auto;gap:10px;margin-bottom:10px">
+                    <div style="background:#f0fdf4;padding:8px;border-radius:4px;text-align:center"><b>&lt;25m</b><br>81 (100%)</div>
+                    <div style="background:#fef9c3;padding:8px;border-radius:4px;text-align:center"><b>25-100m</b><br>0 (0%)</div>
+                    <div style="background:#fef2f2;padding:8px;border-radius:4px;text-align:center"><b>&gt;100m</b><br>0 (0%)</div>
+                </div>
+                <table><thead><tr><th>DA</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc</th><th style="text-align:right">&lt;25m</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>A2AOQHH6UPDEVM</td><td style='text-align:right'>7</td><td style='text-align:right'>0</td><td style='text-align:right'>7</td><td style='text-align:right'>0</td></tr><tr><td>A2RNOUO9Q5YD5B</td><td style='text-align:right'>6</td><td style='text-align:right'>0</td><td style='text-align:right'>6</td><td style='text-align:right'>0</td></tr><tr><td>A2G83LD4956OML</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td></tr><tr><td>A3VTGPFEB9GYR2</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td></tr><tr><td>ANZMXA9W6SCRL</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A37OOWA6ODL3O1</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A5KGBM0Q6KZJT</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A2L3CB7XKDAZFO</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A2HERT3070S6SA</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A27N2G0D9WIA8E</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr></tbody></table>
+                <table><thead><tr><th>DSP</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc%</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>CBRC</td><td style='text-align:right'>46</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr><tr><td>TCIG</td><td style='text-align:right'>35</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr></tbody></table>
+                
+                <h3>🚚 OTR — OAR5 (XPT) — 107 parcels</h3>
+                <div style="display:grid;grid-template-columns:auto auto auto;gap:10px;margin-bottom:10px">
+                    <div style="background:#f0fdf4;padding:8px;border-radius:4px;text-align:center"><b>&lt;25m</b><br>107 (100%)</div>
+                    <div style="background:#fef9c3;padding:8px;border-radius:4px;text-align:center"><b>25-100m</b><br>0 (0%)</div>
+                    <div style="background:#fef2f2;padding:8px;border-radius:4px;text-align:center"><b>&gt;100m</b><br>0 (0%)</div>
+                </div>
+                <table><thead><tr><th>DA</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc</th><th style="text-align:right">&lt;25m</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>A35VB6GJX4QDBY</td><td style='text-align:right'>7</td><td style='text-align:right'>0</td><td style='text-align:right'>7</td><td style='text-align:right'>0</td></tr><tr><td>A2M1R50MWI6C2W</td><td style='text-align:right'>6</td><td style='text-align:right'>0</td><td style='text-align:right'>6</td><td style='text-align:right'>0</td></tr><tr><td>A2TOOGIAXXZ0T9</td><td style='text-align:right'>5</td><td style='text-align:right'>0</td><td style='text-align:right'>5</td><td style='text-align:right'>0</td></tr><tr><td>A3PLG2OEG8OU2G</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>AFZY1FW7NYL5M</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A2N4U49VEY5AIS</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A6YOFDSQCSMGI</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>AUOQ2FFB0FFE4</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A19094Y57PL1H9</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A28YZIEIJBOIE3</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr></tbody></table>
+                <table><thead><tr><th>DSP</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc%</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>TCIG</td><td style='text-align:right'>64</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr><tr><td>MHMT</td><td style='text-align:right'>43</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr></tbody></table>
+                
+            
+            <div style='margin-top:15px'><h3>📦 Action Plan — UTR</h3>
+                    <table class='findings-table'><thead><tr>
+                    <th style='width:30px'>Prio</th><th style='width:120px'>Root Cause</th><th>Finding</th><th>Recommended Action</th>
+                    </tr></thead><tbody><tr style='background:#fef2f2;'><td style='font-size:16px;text-align:center'>🔴</td><td><b>Problem Solve</b></td><td>PS scan rate at 0% — no Problem Solve intervention detected</td><td>Activate Problem Solve immediately. Parcels flagged by system must be resolved within SLA. Staff PS during sortation + pick & stage. >90% PS resolution target.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>Stow Contributors</b></td><td>Top 5 stowers account for 34 PNOV (18%): marclebr@amazon.com (7), abifadao@amazon.com (7), abdmouzo@amazon.com (7), aouerwan@amazon.com (7), aboisrae@amazon.com (6)</td><td>Schedule targeted visual audits on these operators using standard checklist (smart stow + tetris). Perform 1:1 coaching with IAC/F2F. Track WoW improvement. If no improvement after 2 weeks, escalate via Performance Management policy.</td></tr></tbody></table><h3>🚚 Action Plan — OTR</h3>
+                    <table class='findings-table'><thead><tr>
+                    <th style='width:30px'>Prio</th><th style='width:140px'>Root Cause</th><th>Finding</th><th>Recommended Action</th>
+                    </tr></thead><tbody><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>OAR2 (XPT) — Distance</b></td><td>100% marked missing <25m — likely genuine missing</td><td>Focus UTR investigation: parcels likely never loaded. Cross-check with stow operators and bag closure audit.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>OAR2 — DSP Outlier</b></td><td>DSP CBRC accounts for 46 PNOV (57% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>OAR2 — DSP Outlier</b></td><td>DSP TCIG accounts for 35 PNOV (43% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>OAR2 — Split</b></td><td>Split rate at 33% — elevated split route risk</td><td>Share with bottom DSPs via roundtable: on split routes, DA must handle parcels 1 by 1 (not bag by bag). Monitor WoW.</td></tr><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>OAR2 — XPT</b></td><td>XPT node OAR2 has 81 PNOV — verify debrief compliance</td><td>Ensure PIT Stop debrief (Step 7 SOP) is applied. Verify TC + Dolphin access at node. DSP must attend debrief and check van content before DA leaves.</td></tr><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>OAR5 (XPT) — Distance</b></td><td>100% marked missing <25m — likely genuine missing</td><td>Focus UTR investigation: parcels likely never loaded. Cross-check with stow operators and bag closure audit.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>OAR5 — DSP Outlier</b></td><td>DSP TCIG accounts for 64 PNOV (60% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>OAR5 — DSP Outlier</b></td><td>DSP MHMT accounts for 43 PNOV (40% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>OAR5 — XPT</b></td><td>XPT node OAR5 has 107 PNOV — verify debrief compliance</td><td>Ensure PIT Stop debrief (Step 7 SOP) is applied. Verify TC + Dolphin access at node. DSP must attend debrief and check van content before DA leaves.</td></tr></tbody></table></div>
+            </div>
+            <hr style="margin:30px 0;border-color:#e5e7eb">
+            
+            <div class="station-block">
+            <h2>📍 DIF1 — 40 PNOV parcels</h2>
+            <div class="stats">
+                <div class="sc" title="Total PNOV parcels for this station group this week"><div class="l">Total</div><div class="v">40</div></div>
+                <div class="sc " title="% of PNOV parcels conceded (refunded to customer = confirmed lost)"><div class="l">Conceded%</div><div class="v">0%</div></div>
+                <div class="sc red" title="% of PNOV parcels that went through Problem Solve (PS scanned the parcel = investigation done)"><div class="l">PS%</div><div class="v">0/40 (0%)</div></div>
+                <div class="sc" title="% of PNOV that are liquid/fragile parcels (higher damage risk)"><div class="l">Liquid%</div><div class="v">0.0%</div></div>
+                <div class="sc" title="% of PNOV that are oversized parcels (OV = stored on rack, not in bags)"><div class="l">OV%</div><div class="v">0.0%</div></div>
+                <div class="sc" title="% of PNOV parcels destined to a locker delivery point"><div class="l">Locker%</div><div class="v">0.0%</div></div>
+                <div class="sc red" title="% of PNOV on split routes (parcel transferred between DAs = higher loss risk)"><div class="l">Split%</div><div class="v">65.0%</div></div>
+                <div class="sc" title="% of PNOV parcels returned to station D+1 (recovered next day)"><div class="l">RTS D+1%</div><div class="v">0%</div></div>
+            </div>
+
+            <h3>📊 Station Data Summary</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:15px;font-size:12px">
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>📅 Daily Trend</b><br>
+                • 2026-07-25: <b>12</b> PNOV<br>• 2026-07-21: <b>10</b> PNOV<br>• 2026-07-22: <b>7</b> PNOV<br>
+                <span style='color:#666'>Spread over 7 days</span>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>📦 Stow & Dwell</b><br>
+                • Stowed: <b>97.5%</b> (39/40) — 1 not stowed<br>
+                • Mean dwell: <b>14.2 min</b><br>
+                • PS: <b>0/40 (0.0%)</b>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>💰 Value</b><br>
+                • Total: <b>&euro;0</b><br>
+                • HV &gt;100&euro;: <b>0</b> parcels (&euro;0)<br>
+                • HV &gt;300&euro;: <b>0</b> parcels
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🏷️ Characteristics</b><br>
+                • Liquid: 0 | Repack: 0 | Locker: 0<br>
+                • OV: 0 | HV&gt;100&euro;: 0 | SWA: 0
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🔄 Recovery & Concession</b><br>
+                • RTS: <b>0%</b> | D+1: <b>0%</b><br>
+                • Conceded: <b>0%</b>
+            </div>
+            <div style="background:#f9fafb;padding:10px;border-radius:6px">
+                <b>🚛 Routes & Fleet</b><br>
+                • 27 routes (max 2/route)<br>
+                • Split: <b>65%</b> | PSUA: <b>0%</b><br>
+                
+                
+            </div>
+            </div>
+
+            <h3>📦 UTR — Grouped (DIF1)</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px">
+            <div>
+                <b>Top Stow Operators</b>
+                <table><thead><tr><th>Operator</th><th style="text-align:right">PNOV</th><th style="text-align:right">%</th><th style="text-align:right">HV&gt;100&euro;</th></tr></thead><tbody><tr><td>ogmamado@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>cheickoi@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>ataabusa@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>youzanma@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>coulisad@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>fmosacko@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>camamas@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>traorels@amazon.com</td><td style='text-align:right'>3</td><td style='text-align:right'>7.5%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>kafatoup@amazon.com</td><td style='text-align:right'>2</td><td style='text-align:right'>5.0%</td><td style='text-align:right;color:#999'>0</td></tr><tr><td>siddiawa@amazon.fr</td><td style='text-align:right'>2</td><td style='text-align:right'>5.0%</td><td style='text-align:right;color:#999'>0</td></tr></tbody></table>
+            </div>
+            <div>
+                <b>Induct-to-Stow Dwell Time</b> <span style="font-size:11px;color:#666">(mean: 14.2 min)</span>
+                <table><thead><tr><th>Bucket</th><th style="text-align:right">Count</th><th style="text-align:right">%</th></tr></thead><tbody>
+                <tr><td>0-5 min</td><td style="text-align:right">11</td><td style="text-align:right">28%</td></tr>
+                <tr><td>5-15 min</td><td style="text-align:right">17</td><td style="text-align:right">44%</td></tr>
+                <tr><td>15-30 min</td><td style="text-align:right">8</td><td style="text-align:right">21%</td></tr>
+                <tr><td>30-60 min</td><td style="text-align:right">3</td><td style="text-align:right">8%</td></tr>
+                <tr style="background:#fef2f2"><td>&gt;60 min</td><td style="text-align:right">0</td><td style="text-align:right">0%</td></tr>
+                </tbody></table>
+            </div>
+            </div>
+            
+
+            
+                <h3>🚚 OTR — DIF1 (MS) — 40 parcels</h3>
+                <div style="display:grid;grid-template-columns:auto auto auto;gap:10px;margin-bottom:10px">
+                    <div style="background:#f0fdf4;padding:8px;border-radius:4px;text-align:center"><b>&lt;25m</b><br>40 (100%)</div>
+                    <div style="background:#fef9c3;padding:8px;border-radius:4px;text-align:center"><b>25-100m</b><br>0 (0%)</div>
+                    <div style="background:#fef2f2;padding:8px;border-radius:4px;text-align:center"><b>&gt;100m</b><br>0 (0%)</div>
+                </div>
+                <table><thead><tr><th>DA</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc</th><th style="text-align:right">&lt;25m</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>ANSJO24LM9QOG</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td></tr><tr><td>AZLOVYXMZCRH6</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td><td style='text-align:right'>4</td><td style='text-align:right'>0</td></tr><tr><td>ANU4SMA9N76YV</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>A12W8AUZXIWXCS</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td><td style='text-align:right'>3</td><td style='text-align:right'>0</td></tr><tr><td>AFXQH5F7IUILR</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A24TB6MYWF8OFZ</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A23HC6P549H3L1</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A58KD8A86J9C8</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A2K50SAVSE0XSK</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr><tr><td>A1F47L3DNT6L9Q</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td><td style='text-align:right'>2</td><td style='text-align:right'>0</td></tr></tbody></table>
+                <table><thead><tr><th>DSP</th><th style="text-align:right">PNOV</th><th style="text-align:right">Conc%</th><th style="text-align:right">&gt;100m</th></tr></thead><tbody><tr><td>PSUA</td><td style='text-align:right'>22</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr><tr><td>STSA</td><td style='text-align:right'>18</td><td style='text-align:right'>0%</td><td style='text-align:right'>0</td></tr></tbody></table>
+                
+            
+            <div style='margin-top:15px'><h3>📦 Action Plan — UTR</h3>
+                    <table class='findings-table'><thead><tr>
+                    <th style='width:30px'>Prio</th><th style='width:120px'>Root Cause</th><th>Finding</th><th>Recommended Action</th>
+                    </tr></thead><tbody><tr style='background:#fef2f2;'><td style='font-size:16px;text-align:center'>🔴</td><td><b>Problem Solve</b></td><td>PS scan rate at 0% — no Problem Solve intervention detected</td><td>Activate Problem Solve immediately. Parcels flagged by system must be resolved within SLA. Staff PS during sortation + pick & stage. >90% PS resolution target.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>Split Rate</b></td><td>Split rate at 65% — very high, parcels harder to trace</td><td>PSUA at 0%. High split = higher risk of parcels being left behind during transfer. Audit pick & stage process for split bags. Ensure 1-piece flow on split parcels.</td></tr></tbody></table><h3>🚚 Action Plan — OTR</h3>
+                    <table class='findings-table'><thead><tr>
+                    <th style='width:30px'>Prio</th><th style='width:140px'>Root Cause</th><th>Finding</th><th>Recommended Action</th>
+                    </tr></thead><tbody><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>DIF1 (MS) — Distance</b></td><td>100% marked missing <25m — likely genuine missing</td><td>Focus UTR investigation: parcels likely never loaded. Cross-check with stow operators and bag closure audit.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>DIF1 — DSP Outlier</b></td><td>DSP PSUA accounts for 22 PNOV (55% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style='background:#fffbeb;'><td style='font-size:16px;text-align:center'>🟠</td><td><b>DIF1 — DSP Outlier</b></td><td>DSP STSA accounts for 18 PNOV (45% of node)</td><td>Include in next DSP roundtable. Request DSP action plan within 48h. Focus areas: DA coaching, van check at debrief, split route handling. Track WoW improvement.</td></tr><tr style=''><td style='font-size:16px;text-align:center'>🟡</td><td><b>DIF1 — Split</b></td><td>Split rate at 65% — elevated split route risk</td><td>Share with bottom DSPs via roundtable: on split routes, DA must handle parcels 1 by 1 (not bag by bag). Monitor WoW.</td></tr></tbody></table></div>
+            </div>
+            <hr style="margin:30px 0;border-color:#e5e7eb">
+            
+</body></html>
